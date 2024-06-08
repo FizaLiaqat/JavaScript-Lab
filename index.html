@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body onresize="whchange()">
+
+
+    <h1 id="demo"></h1>
+    <!-- <p id="demo2"></p> -->
+
+    <script>
+       function whchange(){
+        let w = window.innerWidth;
+        if(w<576){
+            document.getElementById("demo").innerHTML="Extra small Screen:"+w;
+        }else if(w>=576 && w<768){
+            document.getElementById("demo").innerHTML="small Screen:"+w;
+        }else if(w>=768 && w<992){
+            document.getElementById("demo").innerHTML="Medium Screen:"+w;
+        }else if(w>=992 && w<1200){
+            document.getElementById("demo").innerHTML="Large Screen:"+w;
+        }
+        else if(w>=1200 && w<1400){
+            document.getElementById("demo").innerHTML="Extra Large Screen:"+w;
+        }else{
+            document.getElementById("demo").innerHTML="Extra Extra Large Screen:"+w;
+        }
+        //let h = window.innerHeight;
+        // document.getElementById("demo").innerHTML = "<h1>innerWidth: " + w + "</h1><h1>innerHeight: " + h+"</h1>";
+
+        // let wi = window.outerWidth;
+        // let he = window.outerHeight;
+        // document.getElementById("demo2").innerHTML = "<h1>outerWidth: " + wi + "</h1><h1>outerHeight: " + he+"</h1>";
+       }
+    </script>
+
+</body>
+
+</html>

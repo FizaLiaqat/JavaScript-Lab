@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 500px;
+        height: 400px;
+        background-color: cadetblue;
+        margin: 0px auto;
+        padding: 30px;
+        box-sizing: border-box;
+        font-size: 18px;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate modi cumque ab, accusamus qui quaerat
+            eaque ipsa commodi tempore tempora, optio assumenda. Saepe cumque mollitia, vel eligendi fugit qui sint.</p>
+    </div>
+
+    <script>
+        var h="<h1>This is heading</h1>"; 
+        document.querySelector(".box").insertAdjacentHTML("beforeend",h);
+    </script>
+</body>
+
+</html>

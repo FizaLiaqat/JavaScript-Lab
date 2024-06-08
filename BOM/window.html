@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <button type="button" onclick="showwin()">SHow WIndow</button>
+    <button type="button" onclick="showclose()">close WIndow</button>
+
+    <script>
+        var win;
+        function showwin() {
+
+            win = window.open("", "", "width=600,height=400,left=400,top=300");
+            win.document.write("<span id='data'></span>");
+            var d = "<link rel='stylesheet' href='./style.css'>";
+            win.document.querySelector("#data").insertAdjacentHTML("afterbegin", d);
+
+            win.document.querySelector("#data").insertAdjacentHTML("beforeend", "<div class='main'></div>");
+            win.document.querySelector(".main").insertAdjacentHTML("beforeend", "<div class='header'></div>");
+            win.document.querySelector(".main").insertAdjacentHTML("beforeend", "<div class='navbar'></div>");
+            win.document.querySelector(".main").insertAdjacentHTML("beforeend", "<div class='content'></div>");
+            
+            win.document.querySelector(".main").insertAdjacentHTML("beforeend", "<div class='sidebar'></div>");
+            win.document.querySelector(".main").insertAdjacentHTML("beforeend", "<div class='footer'></div>");
+        }
+        function showclose() {
+            win.close();
+        }
+    </script>
+</body>
+
+</html>

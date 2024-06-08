@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="post" id="sub">
+        <label>User Name</label>
+        <input type="text" name="uname" oninput="getname()" placeholder="enter your name" id="uname" />
+        <span id="ename" style="color: red;"></span>
+        <br><br>
+        <label>User email</label>
+        <input type="email" name="uemail" oninput="getemail()" placeholder="enter your email" id="uemail" />
+        <span id="eemail" style="color: red;"></span>
+        <br><br>
+        <label>User password</label>
+        <input type="password" name="upass" oninput="sahidata()" placeholder="enter your password" id="upass" />
+        <span id="epass" style="color: red;"></span>
+        <button type="button" onclick="showhide()">show/hide</button>
+        <br><br>
+        <input type="file" name="" id="pic" onchange="getpic()">
+        <br><br>
+        <select name="" onchange="getdays()" id="getd">
+            <option value="">select daya</option>
+            <option value="monday">monday</option>
+            <option value="tuesday">tuesday</option>
+            <option value="wednesday">wednesday</option>
+        </select>
+
+        <br><br>
+        <input type="submit" name="sub" value="submit" />
+    </form>
+    <h1 id="h"></h1>
+    <script>
+        function showhide() {
+            var data = document.querySelector("#upass").attributes[0].value;
+            if (data == "password") {
+                document.querySelector("#upass").setAttribute("type", "text");
+            } else {
+                document.querySelector("#upass").setAttribute("type", "password")
+            }
+        }
+
+
+        document.querySelector("#sub").addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            var nameRegex = /^[a-zA-Z\s]+$/;
+            var name = document.querySelector("#uname").value;
+            if (!nameRegex.test(name)) {
+                document.querySelector("#ename").innerHTML = "invalid input";
+                document.querySelector("#uname").style.border = "1px red solid";
+            } else {
+                document.querySelector("#ename").innerHTML = "";
+                document.querySelector("#uname").style.border = "1px #757575 solid";
+            }
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            var email = document.querySelector("#uemail").value;
+
+            if (!emailRegex.test(email)) {
+                document.querySelector("#eemail").innerHTML = "invalid input";
+                document.querySelector("#uemail").style.border = "1px red solid";
+            } else {
+                document.querySelector("#eemail").innerHTML = "";
+                document.querySelector("#uemail").style.border = "1px #757575 solid";
+            }
+
+            var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9#@]{8,}$/;
+            var pass = document.querySelector("#upass").value;
+
+            if (!passwordRegex.test(pass)) {
+                document.querySelector("#epass").innerHTML = "invalid input";
+                document.querySelector("#upass").style.border = "1px red solid";
+            } else {
+                document.querySelector("#epass").innerHTML = "";
+                document.querySelector("#upass").style.border = "1px #757575 solid";
+            }
+        });
+
+        var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
+        var phoneNumberRegex = /^(\+92)3\d{2}-?\d{7}$/;
+        // function getname(){
+        //     var nameRegex = /^[a-zA-Z\s]+$/;
+        //    var name= document.querySelector("#uname").value;
+
+        //  if(!nameRegex.test(name)){
+        //       document.querySelector("#ename").innerHTML="invalid input";
+        //       document.querySelector("#uname").style.border="1px red solid";
+        //  }else{
+        //     document.querySelector("#ename").innerHTML="";
+        //       document.querySelector("#uname").style.border="1px #757575 solid";
+        //  }
+
+        // }
+        // function getemail(){
+        //     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        //    var email= document.querySelector("#uemail").value;
+
+        //  if(!emailRegex.test(email)){
+        //       document.querySelector("#eemail").innerHTML="invalid input";
+        //       document.querySelector("#uemail").style.border="1px red solid";
+        //  }else{
+        //     document.querySelector("#eemail").innerHTML="";
+        //       document.querySelector("#uemail").style.border="1px #757575 solid";
+        //  }
+
+        // }
+    //     function getdata(){
+    //        var s= document.querySelector("#uname").value;
+
+    //   console.log(s);
+
+    //     }
+    //     function sahidata(){
+    //        var s= document.querySelector("#upass").value;
+
+    //       document.querySelector("#h").innerHTML=s;
+
+    //     }
+
+    //     function getpic(){
+    //        var s= document.querySelector("#pic").value;
+
+    //       document.querySelector("#h").innerHTML=s;
+
+    //     }
+    //     function getdays(){
+    //        var s= document.querySelector("#getd").value;
+
+    //       document.querySelector("#h").innerHTML=s;
+
+    //     }
+    </script>
+</body>
+
+</html>

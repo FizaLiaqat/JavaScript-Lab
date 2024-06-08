@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .p1
+    {
+        font-size: 25px;
+        text-decoration: underline 3px green;
+        text-transform: uppercase;
+        color: lightcyan;
+        background-color: aquamarine;
+    }
+    .p2{
+        font-size: 25px;
+        text-decoration: underline 3px green;
+        text-transform: uppercase;
+        color:darkblue;
+        background-color:lightblue;
+    }
+</style>
+<body>
+    <script>
+        var s=1;
+     
+    </script>
+    <button type="button" onclick="next(++s)">Next</button>
+    <img id="data" src="./pic/p1.jpg" width="600" height="300" alt="">
+ 
+    <button type="button" onclick="pre(--s)">Previous</button>
+<!-- <p id="para" class="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem porro in magnam dolor beatae. Eaque eligendi quos a, maxime, ullam odit corrupti odio numquam qui nihil aut laudantium magni laborum!</p> -->
+    <script>
+        function next(a){
+            if(a>=1 && a<=3){
+                document.querySelector("#data").setAttribute("src","./pic/p"+a+".jpg");
+            }
+          
+          
+        }
+        function pre(x){
+           if(x>=1 && x<=3){
+            document.querySelector("#data").setAttribute("src","./pic/p"+x+".jpg");
+           }
+        
+           
+        }
+        // function next(){
+        //     document.querySelector("#para").setAttribute("class","p2")
+        // }
+        // function pre(){
+        //     document.querySelector("#para").setAttribute("class","p1")
+        // }
+    </script>
+</body>
+</html>

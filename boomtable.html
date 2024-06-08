@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <button type="button" onclick="showwin()">SHow WIndow</button>
+    <button type="button" onclick="showclose()">close WIndow</button>
+
+    <script>
+        var win;
+        function showwin() {
+
+            win = window.open("", "", "width=1200,height=400,left=400,top=300");
+            win.document.write("<span id='data'></span>");
+
+            var tab = "<table id='row' border='1' width='900' cellspacing='15' cellpadding='15' align='center' style='background-color: black; color: aliceblue;'></table>";
+
+           win.document.querySelector("#data").insertAdjacentHTML("afterbegin", tab);
+            
+            
+            
+            var arr = {
+                "bscs": {
+                    "ali": Array("Raza", "BSCS", 90, 99, 97, 100, 96),
+                    "maaz": Array("ali", "BSCS", 70, 89, 57, 80, 46),
+                    "hina": Array("shahzad", "BSCS", 80, 79, 67, 70, 66),
+                    "Adeel": Array("akram", "BSCS", 90, 69, 77, 60, 76),
+                    "Azam": Array("shahzad", "BSCS", 60, 59, 87, 50, 86),
+                    "ayesha": Array("akram", "BSCS", 90, 49, 97, 40, 96),
+                    "zeshan": Array("akram", "BSCS", 49, 58, 47, 46, 49),
+                },
+                "bseng": {
+                    "ali": Array("Raza", "bseng", 90, 99, 97, 100, 96),
+                    "maaz": Array("ali", "bseng", 70, 89, 57, 80, 46),
+                    "hina": Array("shahzad", "bseng", 80, 79, 67, 70, 66),
+                    "Adeel": Array("akram", "bseng", 90, 69, 77, 60, 76),
+                    "Azam": Array("shahzad", "bseng", 60, 59, 87, 50, 86),
+                    "ayesha": Array("akram", "bseng", 90, 49, 97, 40, 96),
+                    "zeshan": Array("akram", "bseng", 49, 58, 47, 46, 49),
+                },
+                "bsurdu": {
+                    "ali": Array("Raza", "bsurdu", 90, 99, 97, 100, 96),
+                    "maaz": Array("ali", "bsurdu", 70, 89, 57, 80, 46),
+                    "hina": Array("shahzad", "bsurdu", 80, 79, 67, 70, 66),
+                    "Adeel": Array("akram", "bsurdu", 90, 69, 77, 60, 76),
+                    "Azam": Array("shahzad", "bsurdu", 60, 59, 87, 50, 86),
+                    "ayesha": Array("akram", "bsurdu", 90, 49, 97, 40, 96),
+                    "zeshan": Array("akram", "bsurdu", 49, 58, 47, 46, 49),
+                }
+            
+            };
+            
+            var c = 2;
+            var total=500;
+            for (var s in arr) {
+                var row = "<tr align='center'><td colspan='12'><h1>" + s + "</h1></td></tr>";
+                win.document.querySelector("#row").insertAdjacentHTML("beforeend", row);
+                var head = "<tr><th>Name</th><th>Father name</th><th>class</th><th>English</th><th>Urdu</th><th>IS</th><th>PS</th><th>Math</th><th>Total</th><th>Obtain</th><th>Percentage</th><th>Grade</th></tr>";
+            
+                win.document.querySelector("#row").insertAdjacentHTML("beforeend", head);
+                dep=arr[s];
+                for(var d in dep){
+                        var dr="<tr><td>"+d+"</td></tr>";
+                        win.document.querySelector("#row").insertAdjacentHTML("beforeend", dr);
+                        deps=arr[s][d]
+                        var ob = 0;
+                        for(var st of deps){
+                            if (typeof st == "number") {
+                                ob = ob + st;
+                                var col="<td>"+st+"</td>";
+                                win.document.querySelector("#row").children[c].children[0].insertAdjacentHTML("beforeend",col);
+                            } else {
+                                var col="<td>"+st+"</td>";
+                                win.document.querySelector("#row").children[c].children[0].insertAdjacentHTML("beforeend",col);
+                            }
+                          
+                        }
+                        var t="<td>"+total+"</td>";
+                        win.document.querySelector("#row").children[c].children[0].insertAdjacentHTML("beforeend",t);
+                        var o="<td>"+ob+"</td>";
+                        win.document.querySelector("#row").children[c].children[0].insertAdjacentHTML("beforeend",o);
+                        var per = Math.floor(ob / total * 100);
+                        var p="<td>"+per+"</td>";
+                        win.document.querySelector("#row").children[c].children[0].insertAdjacentHTML("beforeend",p);
+                        var g;
+                        if (per >= 90 && per <= 100) {
+                            g = " You are amazing Your grade is A+";
+                        } else if (per >= 80 && per < 90) {
+                            g = " You are Nice Your grade is A";
+                        } else if (per >= 70 && per < 80) {
+                            g = " You are Good Your grade is B";
+                        } else if (per >= 60 && per < 70) {
+                            g = " You are average Your grade is C";
+                        } else if (per >= 50 && per < 60) {
+                            g = " You are Just Good Your grade is D";
+                        } else {
+                            g = " You are amazing nice Good Your grade is A++";
+                        }
+                        var myg="<td>"+g+"</td>";
+                        win.document.querySelector("#row").children[c].children[0].insertAdjacentHTML("beforeend",myg);
+                        c++;
+                }
+            
+              c=c+2;
+             
+            }
+            
+            
+        }
+        function showclose() {
+            win.close();
+        }
+    </script>
+</body>
+
+</html>
